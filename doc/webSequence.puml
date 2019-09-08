@@ -10,7 +10,7 @@ participant "/"
 participant "/pos"
 participant "/api/pos"
 participant "/tasks/pos_cache"
-database Firebase
+database Firestore
 database "/tmp"
 
 == 屋台向け ==
@@ -24,7 +24,7 @@ loop
         activate 屋台用JS
         屋台用JS -> "/api/pos" : [POST]位置情報登録
             activate "/api/pos"
-            "/api/pos" -> Firebase : 登録
+            "/api/pos" -> Firestore : 登録
         return status
     return status
 end
@@ -34,8 +34,8 @@ loop
     GAE定期実行 -> "/tasks/pos_cache"
     note left : 定期実行は\ncron.yaml\nで定義
     activate "/tasks/pos_cache"
-        "/tasks/pos_cache" -> Firebase : 位置情報一覧取得
-        "/tasks/pos_cache" <-- Firebase : 位置情報一覧
+        "/tasks/pos_cache" -> Firestore : 位置情報一覧取得
+        "/tasks/pos_cache" <-- Firestore : 位置情報一覧
         "/tasks/pos_cache" -> "/tmp" : ファイル化保存
     return status
 end
