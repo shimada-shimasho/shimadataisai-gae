@@ -1,2 +1,2 @@
 # shimadataisai-gae
-Shimada Taisai Web App
+島田大祭）屋台位置情報アプリ
