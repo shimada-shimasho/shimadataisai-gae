@@ -9,9 +9,7 @@ control GAE定期実行
 participant "/"
 participant "/pos"
 participant "/api/pos"
-participant "/tasks/pos_cache"
 database Firestore
-database "/tmp"
 
 == 屋台向け ==
 屋台 -> "/pos" : 屋台用ページ取得
@@ -29,17 +27,6 @@ loop
     return status
 end
 
-== 位置情報キャッシュ ==
-loop
-    GAE定期実行 -> "/tasks/pos_cache"
-    note left : 定期実行は\ncron.yaml\nで定義
-    activate "/tasks/pos_cache"
-        "/tasks/pos_cache" -> Firestore : 位置情報一覧取得
-        "/tasks/pos_cache" <-- Firestore : 位置情報一覧
-        "/tasks/pos_cache" -> "/tmp" : ファイル化保存
-    return status
-end
-
 == 観光客向け ==
 観光客 -> "/" : 観光客用ページ取得
 activate "/"
@@ -51,7 +38,7 @@ loop
     activate 観光客用JS
         観光客用JS -> "/api/pos" : [GET]位置情報取得
         activate "/api/pos"
-        "/api/pos" -> "/tmp" : 一覧取得
+        "/api/pos" -> Firestore : 一覧取得
         return 位置情報一覧
     return 地図プロット更新
 end
