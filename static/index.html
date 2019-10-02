@@ -1,0 +1,41 @@
+<html>
+
+<head>
+  <link rel="stylesheet" href="/css/global.css" type="text/css" />
+  <title>島田大祭位置情報アプリ</title>
+</head>
+
+<body>
+  This page is Index Pages.
+  <form method="get" action="/api/pos">
+    <!-- <form method="get" action="/tasks/pos_cache"> -->
+    <input type="submit" value="位置情報取得">
+  </form>
+
+  <!-- <script src="js/gps_get.js"></script> -->
+</body>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+       https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyAW8LvRlZsjJA70UyGpg2iz68rZmHW9ZgQ",
+    authDomain: "shimada-taisai-dev.firebaseapp.com",
+    databaseURL: "https://shimada-taisai-dev.firebaseio.com",
+    projectId: "shimada-taisai-dev",
+    storageBucket: "shimada-taisai-dev.appspot.com",
+    messagingSenderId: "968920579138",
+    appId: "1:968920579138:web:cb9b55d6b561cc9dac41db",
+    measurementId: "G-SN0KTSMSQY"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+
+</html>
