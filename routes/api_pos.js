@@ -12,13 +12,6 @@ require('date-utils');
 const posFsColl = 'pos';        // 位置情報Firestoreコレクション
 const posDir = '/tmp/pos'       // 屋台位置情報キャッシュディレクトリ
 
-//現在時刻の取得(UTC)
-var dt=new Date();
-//JST(+9h)加算
-dt.setHours(dt.getHours() + 9);
-// var date = dt.getTime();
-var date=dt.toLocaleString();
-
 // [GET] /api/pos/
 // 屋台位置情報取得
 router.get('/', (req, res) => {
@@ -45,6 +38,12 @@ router.post('/', (req, res) => {
     const pos = putPosToFirestore(yataiNo, req.body.latitude, req.body.longitude,date);
     console.log(pos);
     // res.json(pos);
+    //現在時刻の取得(UTC)
+    var dt=new Date();
+    //JST(+9h)加算
+    dt.setHours(dt.getHours() + 9);
+    // var date = dt.getTime();
+    var date=dt.toLocaleString();
 
     console.log('[PAGE_BACK]');
     res.writeHead(302, {

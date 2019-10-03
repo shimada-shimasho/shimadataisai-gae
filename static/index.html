@@ -2,6 +2,7 @@
 
 <head>
   <link rel="stylesheet" href="/css/global.css" type="text/css" />
+  <script type="text/javascript" src="js/gps_get.js" charset="utf-8"></script>
   <title>島田大祭位置情報アプリ</title>
 </head>
 
@@ -11,8 +12,14 @@
     <!-- <form method="get" action="/tasks/pos_cache"> -->
     <input type="submit" value="位置情報取得">
   </form>
+  <div id="data">data</div>
+  <div id="map">map</div>
+
+
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzYAD9m08N80fLumG4wbmOjaTOCvuK5SE&callback=initMap"></script>
 
   <!-- <script src="js/gps_get.js"></script> -->
+
 </body>
 <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-app.js"></script>
