@@ -14,6 +14,7 @@ const tasks_posChache = require('./routes/tasks_posCache');
 
 //### config
 app.use(express.static('static'));    // 静的ファイル・フォルダ
+app.use(express.static('static/img'));    // 静的ファイル・フォルダ
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 

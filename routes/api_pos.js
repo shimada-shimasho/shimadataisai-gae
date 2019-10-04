@@ -21,7 +21,7 @@ router.get('/', (req, res) => {
     setTimeout(function(){
       console.log('*** posMap');
       console.log(posMap);
-      // res.json(posMap);
+      res.json(posMap);
       res.json(JSON.stringify([...posMap]));
       console.log('posMap ***');
     },5000);
@@ -31,6 +31,12 @@ router.get('/', (req, res) => {
 // 屋台位置情報登録
 router.post('/', (req, res) => {
     console.log('[POST]');
+    //現在時刻の取得(UTC)
+    var dt=new Date();
+    //JST(+9h)加算
+    dt.setHours(dt.getHours() + 9);
+    // var date = dt.getTime();
+    var date=dt.toLocaleString();
     // 現在のデプロイバージョンを屋台Noとする
     const yataiNo = process.env.GAE_VERSION;
     console.log(`***GAE_VERSION: ${yataiNo}`);
@@ -38,12 +44,7 @@ router.post('/', (req, res) => {
     const pos = putPosToFirestore(yataiNo, req.body.latitude, req.body.longitude,date);
     console.log(pos);
     // res.json(pos);
-    //現在時刻の取得(UTC)
-    var dt=new Date();
-    //JST(+9h)加算
-    dt.setHours(dt.getHours() + 9);
-    // var date = dt.getTime();
-    var date=dt.toLocaleString();
+
 
     console.log('[PAGE_BACK]');
     res.writeHead(302, {
