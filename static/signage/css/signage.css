@@ -1,0 +1,33 @@
+html{
+  width: 100%;
+  height:100%;
+}
+body {
+  background-color: #367b33;
+
+  width: 100%;
+  height:100%;
+}
+#main{
+  width:100%;
+  height:100%;
+  display:flex;
+}
+#map{
+  width:85%;
+  height: 98%;
+}
+#iconList{
+  width:15%;
+  height: 100%;
+
+  color:#FFF;
+}
+img{
+  width:30px;
+  height:30px;
+}
+#credit{
+  text-align: right;
+  font-size: 25%;
+}

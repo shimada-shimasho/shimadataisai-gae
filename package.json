@@ -16,11 +16,15 @@
     "test": "mocha --exit test/*.test.js"
   },
   "dependencies": {
+    "@firebase/storage": "^0.3.13",
     "@google-cloud/firestore": "^2.2.9",
     "@google-cloud/storage": "^3.3.1",
     "@google/maps": "^1.0.1",
     "date-utils": "^1.2.21",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "firebase": "^7.1.0",
+    "firebase-admin": "^8.6.0",
+    "uniq": "^1.0.1"
   },
   "devDependencies": {
     "mocha": "^6.1.4",

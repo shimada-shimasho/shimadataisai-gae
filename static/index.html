@@ -2,43 +2,60 @@
 
 <head>
   <link rel="stylesheet" href="/css/global.css" type="text/css" />
-  <script type="text/javascript" src="js/gps_get.js" charset="utf-8"></script>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+
   <title>島田大祭位置情報アプリ</title>
 </head>
 
 <body>
-  This page is Index Pages.<img src="img/icon/Bus.png" />
-  <form method="get" action="/api/pos">
-    <!-- <form method="get" action="/tasks/pos_cache"> -->
-    <input type="submit" value="位置情報取得">
-  </form>
-  <div id="data">data</div>
+  <div id="text">
+    運行状況は５分おきに更新をしています。
+  </div>
+
   <div id="map">map</div>
+  <div id="credit">
+    presented by 静岡県立島田商業高等学校
+  </div>
+  <!-- <img src="img/icon/mikoshi.png" />屋台
+  <img src="img/icon/dance.png" />鹿島踊り
+  <img src="img/icon/daimyouF.png" /><img src="img/icon/daimyou.png" />大名行列<br />
+  <img src="img/icon/honbu.png" />本部
+  <img src="img/icon/Bus.png" />バス停
+  <img src="img/icon/bench.png" />お休み処<br>
+  <img src="img/icon/baby.png" />赤ちゃん休憩所
+  <img src="img/icon/Information.png" />案内所
+  <img src="img/icon/wc.png" />トイレ<br>
+  <img src="img/icon/Coin_Locker.png" />コインロッカー
+  <img src="img/icon/Cigarette.png" />喫煙所
+  <img src="img/icon/Parking.png" />駐車場 -->
 
-
+  <script type="text/javascript" src="js/gps_get.js" charset="utf-8"></script>
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApBJPJAo9Rdv2ruSAXXw_vvJbXF6KZTj4&callback=initMap"></script>
 
-  <!-- <script src="js/gps_get.js"></script> -->
 
 </body>
 <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.1.0/firebase-app.js"></script>
+<!-- Add Firebase products that you want to use -->
+<script src="https://www.gstatic.com/firebasejs/7.1.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.1.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.1.0/firebase-storage.js"></script>
 
 <!-- TODO: Add SDKs for Firebase products that you want to use
-       https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-analytics.js"></script>
+    https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.1.0/firebase-analytics.js"></script>
 
 <script>
   // Your web app's Firebase configuration
   var firebaseConfig = {
-    apiKey: "AIzaSyAW8LvRlZsjJA70UyGpg2iz68rZmHW9ZgQ",
-    authDomain: "shimada-taisai-dev.firebaseapp.com",
-    databaseURL: "https://shimada-taisai-dev.firebaseio.com",
-    projectId: "shimada-taisai-dev",
-    storageBucket: "shimada-taisai-dev.appspot.com",
-    messagingSenderId: "968920579138",
-    appId: "1:968920579138:web:cb9b55d6b561cc9dac41db",
-    measurementId: "G-SN0KTSMSQY"
+    apiKey: "AIzaSyBpl6yQlp77BPZvdiuU5N9hSx8TJoDkCPo",
+    authDomain: "shimada-taisai.firebaseapp.com",
+    databaseURL: "https://shimada-taisai.firebaseio.com",
+    projectId: "shimada-taisai",
+    storageBucket: "shimada-taisai.appspot.com",
+    messagingSenderId: "1021931534964",
+    appId: "1:1021931534964:web:3e29daa726a706fdd7af21",
+    measurementId: "G-K7E96QHPDC"
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);

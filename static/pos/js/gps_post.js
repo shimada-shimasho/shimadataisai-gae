@@ -4,6 +4,11 @@ console.log(date);
 // console.log(now_date.getTime());
 document.getElementById('last_time').innerHTML="前回の取得は、"+date;
 
+
+var latitude=0;
+var longitude=0;
+
+
 // Geolocation APIに対応している
 if (navigator.geolocation) {
     console.log("この端末では位置情報が取得できます");
@@ -23,8 +28,8 @@ function getPosition() {
       // 取得成功した場合
     function(position) {
         var send_form = document.createElement('form');
-        var latitude = document.createElement('input');
-        var longitude = document.createElement('input');
+        latitude = document.createElement('input');
+        longitude = document.createElement('input');
         send_form.method = 'POST';
         send_form.action = '/api/pos';
 
